@@ -1,0 +1,23 @@
+/*-- scss:defaults --*/
+$body-bg: #000000;          /* Pitch Black Background */
+$body-color: #00ffff;       /* Cyan Blue Text */
+$headings-color: #00ffff;   /* Cyan Headings */
+$link-color: #ff00ff;       /* Magenta Links (for contrast) */
+$link-hover-color: #ffffff; /* White when hovering */
+
+/* Make code blocks look cool too */
+$code-block-bg: #1a1a1a;
+$code-color: #00ff00;       /* Matrix Green for code */
+
+/*-- scss:rules --*/
+/* Force plots to have transparent backgrounds so they match the site */
+.cell-output-display img {
+  background-color: transparent !important;
+}
+
+/* Style the Navbar */
+.navbar {
+  background-color: #1a1a1a !important;
+  border-bottom: 2px solid #00ffff;
+}
+
