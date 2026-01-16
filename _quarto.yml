@@ -7,17 +7,25 @@ website:
     left:
       - href: index.qmd
         text: Home
+        
       - href: about.qmd
-      - href: hits.qmd
-        text: FPS vs Hits
-      - href: walks.qmd
-        text: FPS vs Walks
-      - href: homeruns.qmd
-        text: FPS vs Homeruns
-      - href: strikeouts.qmd
-        text: FPS vs Strikeouts
+
+
+      - text: FPS Outcomes
+        menu:
+        - href: hits.qmd
+          text: FPS vs Hits
+        - href: walks.qmd
+          text: FPS vs Walks
+        - href: homeruns.qmd
+          text: FPS vs Homeruns
+        - href: strikeouts.qmd
+          text: FPS vs Strikeouts
+
+
       - href: videos.qmd
         text: Game Footage
+
       - href: why_this.qmd
         text: Why This?
 format:
