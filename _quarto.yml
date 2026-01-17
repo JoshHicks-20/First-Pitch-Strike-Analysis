@@ -15,12 +15,15 @@ website:
         menu:
         - href: hits.qmd
           text: FPE vs Hits
-        - href: walks.qmd
-          text: FPE vs Walks
         - href: homeruns.qmd
           text: FPE vs Homeruns
+        - href: outs.qmd
+          text: FPE vs Outs
+        - href: walks.qmd
+          text: FPE vs Walks
         - href: strikeouts.qmd
           text: FPE vs Strikeouts
+        
 
 
       - href: videos.qmd
