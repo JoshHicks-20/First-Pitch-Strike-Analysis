@@ -71,3 +71,4 @@ ggplot(pie_data, aes(x = "", y = n, fill = first_pitch_result)) +
     legend.box.margin = margin(10, 10, 10, 10) # Gives the legend a little breathing room
   )
 ```
+
