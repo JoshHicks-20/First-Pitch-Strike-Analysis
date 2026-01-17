@@ -2,25 +2,25 @@ project:
   type: website
 
 website:
-  title: "FPS Analysis"
+  title: "FPE Analysis"
   navbar:
     left:
       - href: index.qmd
-        text: Home
-        
+        text: First Pitch Effect
+
       - href: about.qmd
 
 
-      - text: FPS Outcomes
+      - text: FPE Outcomes
         menu:
         - href: hits.qmd
-          text: FPS vs Hits
+          text: FPE vs Hits
         - href: walks.qmd
-          text: FPS vs Walks
+          text: FPE vs Walks
         - href: homeruns.qmd
-          text: FPS vs Homeruns
+          text: FPE vs Homeruns
         - href: strikeouts.qmd
-          text: FPS vs Strikeouts
+          text: FPE vs Strikeouts
 
 
       - href: videos.qmd
@@ -28,6 +28,10 @@ website:
 
       - href: why_this.qmd
         text: Why This?
+      # --- PASTE THE FOOTER HERE (Inside "website") ---
+  page-footer:
+    background: "black"
+    center: "Joshua Hicks, New College of Florida, 2026  | [☕ Buy me a Coffee](https://venmo.com/u/Joshua-Hicks-243)"
 format:
   html:
     theme: 

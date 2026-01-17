@@ -1,6 +1,6 @@
 /*-- scss:defaults --*/
 $body-bg: #000000;          /* Pitch Black Background */
-$body-color: #00ffff;       /* Cyan Blue Text */
+$body-color: #fcefdcff;       /* Cyan Blue Text */
 $headings-color: #00ffff;   /* Cyan Headings */
 $link-color: #ff00ff;       /* Magenta Links (for contrast) */
 $link-hover-color: #ffffff; /* White when hovering */
@@ -21,3 +21,19 @@ $code-color: #00ff00;       /* Matrix Green for code */
   border-bottom: 2px solid #00ffff;
 }
 
+/* Footer Styling */
+.footer {
+  background-color: #000000 !important;
+  color: #fcefdcff !important;     /* Cyan text */
+  border-top: 1px solid #333333; /* Subtle top border */
+  font-size: 0.9em;              /* Slightly smaller text for elegance */
+}
+/* Make links in the footer look like Venmo/Money */
+.footer a {
+  color: #008CFF !important; /* Venmo Blue */
+  font-weight: bold;
+}
+
+.footer a:hover {
+  color: #00d791 !important; /* Venmo Green on hover */
+}

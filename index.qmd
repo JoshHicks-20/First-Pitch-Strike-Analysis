@@ -7,7 +7,7 @@ format:
 
 ## Project Overview
 
-In the modern era of baseball analytics, few metrics are preached as loudly as the **First Pitch Strike (FPS)**. The philosophy is simple: get ahead **0-1**, and the batter is on the defensive. Fall behind **1-0**, and the pitcher is at the mercy of the hitter.
+In the modern era of baseball analytics, few metrics are preached as loudly as the **First Pitch Effect (FPE)**. The philosophy is simple: get ahead **0-1**, and the batter is on the defensive. Fall behind **1-0**, and the pitcher is at the mercy of the hitter.
 
 But does the data back up the dogma?
 
@@ -30,7 +30,7 @@ Using **R** and the **baseballr** package, I scraped and processed raw Statcast 
 ### How to Navigate
 Use the **Analysis** dropdown menu at the top to explore specific outcomes:
 
-* **FPS vs Hits:** Do hits come primarily from 1-0 counts?
-* **FPS vs Walks:** How often does a first-pitch strike prevent a walk?
-* **FPS vs Strikeouts:** The correlation between 0-1 starts and the K.
-* **FPS vs Home Runs:** The cost of the first-pitch mistake.
+* **FPE vs Hits:** Do hits come primarily from 1-0 counts?
+* **FPE vs Walks:** How often does a first-pitch strike prevent a walk?
+* **FPE vs Strikeouts:** The correlation between 0-1 starts and the K.
+* **FPE vs Home Runs:** The cost of the first-pitch mistake.
