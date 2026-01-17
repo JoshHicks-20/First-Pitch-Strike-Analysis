@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The First Pitch Effect – FPS Analysis</title>
+<title>The First Pitch Effect – FPE Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-36392ade8bb17e023df93542e51d5994.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-39b00e2d5f1d9fa9ea61c23d2c5ae497.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">FPS Analysis</span>
+    <span class="navbar-title">FPE Analysis</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -91,32 +91,32 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">First Pitch Effect</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-fps-outcomes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">FPS Outcomes</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-fpe-outcomes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">FPE Outcomes</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-fps-outcomes">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-fpe-outcomes">    
         <li>
     <a class="dropdown-item" href="./hits.html">
- <span class="dropdown-text">FPS vs Hits</span></a>
+ <span class="dropdown-text">FPE vs Hits</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./walks.html">
- <span class="dropdown-text">FPS vs Walks</span></a>
+ <span class="dropdown-text">FPE vs Walks</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./homeruns.html">
- <span class="dropdown-text">FPS vs Homeruns</span></a>
+ <span class="dropdown-text">FPE vs Homeruns</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./strikeouts.html">
- <span class="dropdown-text">FPS vs Strikeouts</span></a>
+ <span class="dropdown-text">FPE vs Strikeouts</span></a>
   </li>  
     </ul>
   </li>
@@ -177,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="project-overview" class="level2">
 <h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
-<p>In the modern era of baseball analytics, few metrics are preached as loudly as the <strong>First Pitch Strike (FPS)</strong>. The philosophy is simple: get ahead <strong>0-1</strong>, and the batter is on the defensive. Fall behind <strong>1-0</strong>, and the pitcher is at the mercy of the hitter.</p>
+<p>In the modern era of baseball analytics, few metrics are preached as loudly as the <strong>First Pitch Effect (FPE)</strong>. The philosophy is simple: get ahead <strong>0-1</strong>, and the batter is on the defensive. Fall behind <strong>1-0</strong>, and the pitcher is at the mercy of the hitter.</p>
 <p>But does the data back up the dogma?</p>
 <p>This project analyzes <strong>Major League Baseball (2024 Season)</strong> pitch-by-pitch data to determine exactly how the outcome of the very first pitch dictates the final result of the at-bat.</p>
 <section id="the-core-question" class="level3">
@@ -193,10 +193,10 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="how-to-navigate">How to Navigate</h3>
 <p>Use the <strong>Analysis</strong> dropdown menu at the top to explore specific outcomes:</p>
 <ul>
-<li><strong>FPS vs Hits:</strong> Do hits come primarily from 1-0 counts?</li>
-<li><strong>FPS vs Walks:</strong> How often does a first-pitch strike prevent a walk?</li>
-<li><strong>FPS vs Strikeouts:</strong> The correlation between 0-1 starts and the K.</li>
-<li><strong>FPS vs Home Runs:</strong> The cost of the first-pitch mistake.</li>
+<li><strong>FPE vs Hits:</strong> Do hits come primarily from 1-0 counts?</li>
+<li><strong>FPE vs Walks:</strong> How often does a first-pitch strike prevent a walk?</li>
+<li><strong>FPE vs Strikeouts:</strong> The correlation between 0-1 starts and the K.</li>
+<li><strong>FPE vs Home Runs:</strong> The cost of the first-pitch mistake.</li>
 </ul>
 
 
@@ -604,6 +604,19 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Joshua Hicks, New College of Florida, 2026 | <a href="https://venmo.com/u/Joshua-Hicks-243">☕ Buy me a Coffee</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
