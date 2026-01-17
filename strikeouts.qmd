@@ -3,3 +3,71 @@ title: "FPS vs Strikeouts"
 format: html
 ---
 
+```{r}
+#| echo: false
+#| warning: false
+#| dev-args: { "bg": "black" }
+library(tidyverse)
+
+# 1. Load the Data (Using the file we fixed in the last step)
+data <- read_csv("fps_analysis_2024.csv")
+
+# 2. Prepare the Data: Filter for HITS only
+pie_data <- data |> 
+  filter(is_strikeout == TRUE) |>              # Keep only rows where a Hit occurred
+  filter(first_pitch_result %in% c("Strike", "Ball")) |> # Remove "Other"
+  count(first_pitch_result) |>           # Count how many were Strikes vs Balls
+  mutate(
+    percentage = n / sum(n),             # Calculate %
+    label_text = scales::percent(percentage, accuracy = 1) # Make "55%" label
+  )
+
+# 3. Create the Pie Chart
+ggplot(pie_data, aes(x = "", y = n, fill = first_pitch_result)) +
+  
+  # Create the Bar (which becomes a Pie in the next step)
+  geom_bar(stat = "identity", width = 1, color = "black") +
+  
+  # Turn the Bar into a Pie
+  coord_polar("y", start = 0) +
+  
+  # COLORS: Green for Strike, Red for Ball
+  scale_fill_manual(values = c("Strike" = "#00ff00", 
+                               "Ball" = "#ff0000")) +
+  
+  # Add the Percentages inside the slices
+  geom_text(aes(label = label_text), 
+            position = position_stack(vjust = 0.5), 
+            color = "black", # Black text inside the bright colors is easier to read
+            fontface = "bold", size = 6) +
+  
+  # LABELS
+  labs(
+    title = "Strikeouts",
+    subtitle = "What was the First Pitch for every strikeout recorded?",
+    fill = "First Pitch Result", # Legend Title
+    x = NULL, y = NULL
+  ) +
+  
+ # ... (rest of your ggplot code above) ...
+
+  theme_void() + 
+  theme(
+    # 1. REMOVE THE WHITE EDGES (Margins)
+    plot.margin = margin(0, 0, 0, 0, "cm"),
+    
+    # 2. Ensure the background fills everything with NO borders
+    plot.background = element_rect(fill = "black", color = NA), 
+    panel.background = element_rect(fill = "black", color = NA),
+    
+    # 3. Text Styling (Same as before)
+    plot.title = element_text(color = "#00ffff", face = "bold", size = 18, hjust = 0.5, margin = margin(t=10, b=5)),
+    plot.subtitle = element_text(color = "white", hjust = 0.5, margin = margin(b=10)),
+    
+    # 4. Legend Styling
+    legend.text = element_text(color = "#00ffff", size = 12),
+    legend.title = element_text(color = "#00ffff", face = "bold"),
+    legend.position = "right",
+    legend.box.margin = margin(10, 10, 10, 10) # Gives the legend a little breathing room
+  )
+```
