@@ -26,8 +26,8 @@ website:
         
 
 
-      - href: videos.qmd
-        text: Game Footage
+      - href: Pitchers.qmd
+        text: Trifecta
 
       - href: why_this.qmd
         text: Why This?
