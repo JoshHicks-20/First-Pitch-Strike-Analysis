@@ -107,12 +107,16 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">FPE vs Hits</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./walks.html">
- <span class="dropdown-text">FPE vs Walks</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./homeruns.html">
  <span class="dropdown-text">FPE vs Homeruns</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./outs.html">
+ <span class="dropdown-text">FPE vs Outs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./walks.html">
+ <span class="dropdown-text">FPE vs Walks</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./strikeouts.html">
@@ -121,8 +125,8 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./videos.html"> 
-<span class="menu-text">Game Footage</span></a>
+    <a class="nav-link" href="./Pitchers.html"> 
+<span class="menu-text">Trifecta</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./why_this.html"> 
@@ -186,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="methodology" class="level3">
 <h3 class="anchored" data-anchor-id="methodology">Methodology</h3>
-<p>Using <strong>R</strong> and the <strong>baseballr</strong> package, I scraped and processed raw Statcast data to isolate the first pitch of every at-bat and track it to its final conclusion. * <strong>Data Source:</strong> MLB Statcast (2024) * <strong>Tools:</strong> R, Tidyverse, Quarto * <strong>Visualization:</strong> Compositional Analysis (Pie Charts)</p>
+<p>Using <strong>R</strong> and the <strong>baseballr</strong> package, I scraped and processed raw Statcast data for the <strong>entire 2024 MLB Regular Season</strong>. This dataset tracks every single pitch thrown this year to isolate the first pitch of every at-bat and link it to the final conclusion. * <strong>Data Source:</strong> MLB Statcast (Full 2024 Season) * <strong>Scope:</strong> 2,430 Games / ~180,000 At-Bats * <strong>Tools:</strong> R, Tidyverse, Quarto * <strong>Visualization:</strong> Compositional Analysis (Pie Charts)</p>
 <hr>
 </section>
 <section id="how-to-navigate" class="level3">
@@ -194,9 +198,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Use the <strong>Analysis</strong> dropdown menu at the top to explore specific outcomes:</p>
 <ul>
 <li><strong>FPE vs Hits:</strong> Do hits come primarily from 1-0 counts?</li>
+<li><strong>FPE vs Home Runs:</strong> The cost of the first-pitch mistake.</li>
+<li><strong>FPE vs Outs:</strong> How often does a First Pitch Strike lead to an easy out?</li>
 <li><strong>FPE vs Walks:</strong> How often does a first-pitch strike prevent a walk?</li>
 <li><strong>FPE vs Strikeouts:</strong> The correlation between 0-1 starts and the K.</li>
-<li><strong>FPE vs Home Runs:</strong> The cost of the first-pitch mistake.</li>
 </ul>
 
 

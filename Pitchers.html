@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Why This? – FPE Analysis</title>
+<title>Pitcher Comparison – FPE Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,8 +67,27 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="site_libs/plotly-binding-4.11.0/plotly.js"></script>
+
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
+
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -124,11 +143,11 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./Pitchers.html"> 
+    <a class="nav-link active" href="./Pitchers.html" aria-current="page"> 
 <span class="menu-text">Trifecta</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./why_this.html" aria-current="page"> 
+    <a class="nav-link" href="./why_this.html"> 
 <span class="menu-text">Why This?</span></a>
   </li>  
 </ul>
@@ -142,15 +161,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-impact-of-first-pitch-strike-mentality-on-all-outcomes" id="toc-the-impact-of-first-pitch-strike-mentality-on-all-outcomes" class="nav-link active" data-scroll-target="#the-impact-of-first-pitch-strike-mentality-on-all-outcomes">The Impact of First Pitch Strike Mentality on All Outcomes</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Why This?</h1>
+<h1 class="title">Pitcher Comparison</h1>
 </div>
 
 
@@ -167,8 +192,87 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="the-impact-of-first-pitch-strike-mentality-on-all-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="the-impact-of-first-pitch-strike-mentality-on-all-outcomes">The Impact of First Pitch Strike Mentality on All Outcomes</h2>
+<p>We analyzed three distinct starting pitchers from the 2024 season:</p>
+<ol type="1">
+<li><strong>The Sniper:</strong> The pitcher with the <strong>Highest</strong> First Pitch Strike rate.</li>
+<li><strong>The Average:</strong> A pitcher representing the league median.</li>
+<li><strong>The Wild Card:</strong> The pitcher with the <strong>Lowest</strong> First Pitch Strike rate.</li>
+</ol>
+<p>Does throwing that first strike actually change the composition of how their season goes?</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ℹ️ <strong>Click here: Why is “The Sniper” important?</strong>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>The Strategy:</strong> This chart represents a pitcher who dominates the strike zone early (70% FPS).</p>
+<p><strong>What to look for:</strong> * <strong>Massive Green Slices:</strong> Because he gets ahead 0-1, batters are forced to protect the plate, leading to high Strikeout and Field Out numbers. * <strong>Tiny Yellow Slice:</strong> He rarely walks people because he doesn’t fall behind in the count. * <strong>The Takeaway:</strong> This is the model of efficiency. By attacking early, he minimizes damage and controls the pace of the game.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-e8381f72aea99697806a" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-e8381f72aea99697806a">{"x":{"visdat":{"53ac25925784":["function () ","plotlyVisDat"]},"cur_data":"53ac25925784","attrs":{"53ac25925784":{"labels":{},"values":{},"textinfo":"percent","hoverinfo":"label+value","marker":{"colors":{},"line":{"color":"#000000","width":2}},"textfont":{"family":"Arial","size":14,"color":"black"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":20,"l":20,"t":50,"r":20},"title":{"text":"The Sniper: Woo, Bryan (74.4% FPS)","font":{"color":"#00ff00","size":20,"family":"Arial"}},"paper_bgcolor":"black","plot_bgcolor":"black","legend":{"font":{"color":"white","size":12}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["Home Run","Base Hit","Walk","Strikeout","Field Out"],"values":[14,70,10,78,232],"textinfo":"percent","hoverinfo":["label+value","label+value","label+value","label+value","label+value"],"marker":{"color":"rgba(31,119,180,1)","colors":["#ff00ff","#ff0000","#ffff00","#00ff00","#008000"],"line":{"color":"#000000","width":2}},"textfont":{"family":"Arial","size":14,"color":"black"},"type":"pie","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ℹ️ <strong>Click here: Understanding “The Average”</strong>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>The Strategy:</strong> This represents the league median. This pitcher lands a first-pitch strike about 60% of the time.</p>
+<p><strong>What to look for:</strong> * <strong>Balance:</strong> You see a healthy mix of green (outs) and red/yellow (danger). * <strong>The Baseline:</strong> This chart serves as your “Control Group.” It shows what a typical MLB performance looks like. * <strong>The Takeaway:</strong> Compare the other two charts to this one. You will clearly see how deviating from this baseline (either better or worse command) dramatically shifts the color balance.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-06225000f323e2d49e9f" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-06225000f323e2d49e9f">{"x":{"visdat":{"53ac2092731e":["function () ","plotlyVisDat"]},"cur_data":"53ac2092731e","attrs":{"53ac2092731e":{"labels":{},"values":{},"textinfo":"percent","hoverinfo":"label+value","marker":{"colors":{},"line":{"color":"#000000","width":2}},"textfont":{"family":"Arial","size":14,"color":"black"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":20,"l":20,"t":50,"r":20},"title":{"text":"The Average: Crawford, Kutter (63.6% FPS)","font":{"color":"#00ffff","size":20,"family":"Arial"}},"paper_bgcolor":"black","plot_bgcolor":"black","legend":{"font":{"color":"white","size":12}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["Home Run","Base Hit","Walk","Strikeout","Field Out"],"values":[32,107,43,161,335],"textinfo":"percent","hoverinfo":["label+value","label+value","label+value","label+value","label+value"],"marker":{"color":"rgba(31,119,180,1)","colors":["#ff00ff","#ff0000","#ffff00","#00ff00","#008000"],"line":{"color":"#000000","width":2}},"textfont":{"family":"Arial","size":14,"color":"black"},"type":"pie","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ℹ️ <strong>Click here: The Danger of “The Wild Card”</strong>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>The Strategy:</strong> This pitcher has the lowest FPS rate (below 50%). He constantly falls behind 1-0.</p>
+<p><strong>What to look for:</strong> * <strong>The Yellow Danger Zone:</strong> Notice how much larger the Walk slice (Yellow) is compared to The Sniper. * <strong>Hidden Damage:</strong> When batters know a pitcher can’t find the zone, they sit on specific pitches, leading to harder contact (Red slices). * <strong>The Takeaway:</strong> This visualizes inefficiency. Falling behind extends innings, raises pitch counts, and gives the advantage to the batter.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-583819d3085e450be017" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-583819d3085e450be017">{"x":{"visdat":{"53ac4bb31fb9":["function () ","plotlyVisDat"]},"cur_data":"53ac4bb31fb9","attrs":{"53ac4bb31fb9":{"labels":{},"values":{},"textinfo":"percent","hoverinfo":"label+value","marker":{"colors":{},"line":{"color":"#000000","width":2}},"textfont":{"family":"Arial","size":14,"color":"black"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":20,"l":20,"t":50,"r":20},"title":{"text":"The Wild Card: Gil, Luis (52.7% FPS)","font":{"color":"#ff00ff","size":20,"family":"Arial"}},"paper_bgcolor":"black","plot_bgcolor":"black","legend":{"font":{"color":"white","size":12}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["Home Run","Base Hit","Walk","Strikeout","Field Out"],"values":[12,76,70,156,244],"textinfo":"percent","hoverinfo":["label+value","label+value","label+value","label+value","label+value"],"marker":{"color":"rgba(31,119,180,1)","colors":["#ff00ff","#ff0000","#ffff00","#00ff00","#008000"],"line":{"color":"#000000","width":2}},"textfont":{"family":"Arial","size":14,"color":"black"},"type":"pie","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
