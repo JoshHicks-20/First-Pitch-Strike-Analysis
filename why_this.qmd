@@ -3,3 +3,37 @@ title: "Why This?"
 format: html
 ---
 
+<div style="line-height: 1.8;">
+
+### The Importance of Count Leverage
+
+**First Pitch Effect (FPS)** was chosen to be analyzed because it is the foundational metric of pitching efficiency. While strikeouts and home runs make the highlights, the outcome of an at-bat is frequently determined by the very first pitch.
+
+This project quantifies the advantage gained by "getting ahead" and visualizes how drastically the game changes based on a 0-1 vs. 1-0 count.
+
+<br>
+
+### 1. Understanding Leverage
+For those new to baseball analytics, the count dictates the strategy.
+
+* **The 1-0 Disadvantage:** When a pitcher starts with a Ball, they fall behind. To avoid walking the batter, they are statistically more likely to throw a fastball over the plate on the next pitch. The batter knows this, and can swing more aggressively.
+
+* **The 0-1 Advantage:** When a pitcher starts with a Strike, the batter is immediately put on the defensive. The pitcher expands their arsenal, using off-speed pitches or balls out of the zone to induce weak contact.
+
+The difference isn't just psychological; it is mathematical. Batting averages and "hard-hit rates" plummet once a batter has a strike against them.
+
+<br>
+
+### 2. Quantifying the Cliché
+For the experienced fan, "Get ahead of the hitter" is one of the oldest clichés in the sport. However, the data reveals that this is more than just conventional wisdom.
+
+This analysis highlights:
+
+
+* **The Domino Effect:** How a 1-0 count correlates directly to higher walk rates and harder contact later in the at-bat.
+
+* **The Margin for Error:** Elite pitchers don't necessarily have "better stuff" on every pitch; they simply avoid the 1-0 counts that force them to throw predictable pitches.
+
+By isolating the first pitch, we remove the noise of the rest of the game and focus on the single variable that correlates most strongly with a pitcher's ability to control the inning.
+
+</div>

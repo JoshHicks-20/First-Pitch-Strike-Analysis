@@ -5,27 +5,30 @@ format:
     css: styles.css
 ---
 
-## The Impact of First Pitch Strike Mentality on All Outcomes
+## The Impact of First Pitch Strike Precision on All Outcomes
 
-We analyzed three distinct starting pitchers from the 2024 season:
+We analyzed three distinct **Starting** Pitchers from the 2024 season:
 
 1.  **The Sniper:** The pitcher with the **Highest** First Pitch Strike rate.
 2.  **The Average:** A pitcher representing the league median.
-3.  **The Wild Card:** The pitcher with the **Lowest** First Pitch Strike rate.
+3.  **The Coin Flip:** The pitcher with the **Lowest** First Pitch Strike rate.
 
-Does throwing that first strike actually change the composition of how their season goes?
+*Does throwing that first strike actually change the composition of how their season goes?*
 
 
 
 
 ::: {.callout-tip collapse="true" appearance="simple" icon=false}
-## ℹ️ **Click here: Why is "The Sniper" important?**
+##  **Why is "The Sniper" Deadly?**
 
-**The Strategy:** This chart represents a pitcher who dominates the strike zone early (70% FPS).
+**The Strategy:** This chart represents a pitcher who dominates the strike zone early (~74% FPS).
 
 **What to look for:**
-* **Massive Green Slices:** Because he gets ahead 0-1, batters are forced to protect the plate, leading to high Strikeout and Field Out numbers.
+
+* **Massive Green Slices:** Because he gets ahead <span style="color: #00ff00;">0-1</span>, batters are forced to protect the plate, leading to high Strikeout and Field Out numbers.
+
 * **Tiny Yellow Slice:** He rarely walks people because he doesn't fall behind in the count.
+
 * **The Takeaway:** This is the model of efficiency. By attacking early, he minimizes damage and controls the pace of the game.
 :::
 ```{r}
@@ -97,15 +100,19 @@ fig
 
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## ℹ️ **Click here: Understanding "The Average"**
+## **Understanding "The Average"**
 
-**The Strategy:** This represents the league median. This pitcher lands a first-pitch strike about 60% of the time.
+**The Strategy:** This represents the league median. This pitcher lands a first-pitch strike ~63% of the time.
 
 **What to look for:**
-* **Balance:** You see a healthy mix of green (outs) and red/yellow (danger).
+
+* **Balance:** You see a healthy mix of <span style="color: #00ff00;">green</span> (outs) and <span style="color: #ff0000;">red</span>/<span style="color: #ffff00;">yellow</span> (offense advantage).
+
 * **The Baseline:** This chart serves as your "Control Group." It shows what a typical MLB performance looks like.
+
 * **The Takeaway:** Compare the other two charts to this one. You will clearly see how deviating from this baseline (either better or worse command) dramatically shifts the color balance.
 :::
+
 ```{r}
 #| echo: false
 #| warning: false
@@ -171,15 +178,19 @@ fig
 
 
 ::: {.callout-important collapse="true" appearance="simple" icon=false}
-## ℹ️ **Click here: The Danger of "The Wild Card"**
+## **The Danger of "The Coin Flip"**
 
-**The Strategy:** This pitcher has the lowest FPS rate (below 50%). He constantly falls behind 1-0.
+**The Strategy:** This pitcher has the lowest FPS rate (~52%). He constantly falls behind <span style="color: #ff0000;">1-0</span>.
 
 **What to look for:**
-* **The Yellow Danger Zone:** Notice how much larger the Walk slice (Yellow) is compared to The Sniper.
-* **Hidden Damage:** When batters know a pitcher can't find the zone, they sit on specific pitches, leading to harder contact (Red slices).
+
+* **The Yellow Danger Zone:** Notice how much larger the <span style="color: #ffff00;">Walk slice</span> is compared to The Sniper.
+
+* **Hidden Damage:** When batters know a pitcher can't find the zone, they sit on specific pitches, leading to <span style="color: #ff0000;">harder contact</span>.
+
 * **The Takeaway:** This visualizes inefficiency. Falling behind extends innings, raises pitch counts, and gives the advantage to the batter.
 :::
+
 ```{r}
 #| echo: false
 #| warning: false
@@ -198,7 +209,7 @@ plot_data <- pitcher_data |>
   filter(Category == "Lowest FPS%") |> 
   mutate(
     fps_label = scales::percent(fps_pct, accuracy = 0.1),
-    chart_title = paste0("The Wild Card: ", player_name, " (", fps_label, " FPS)"),
+    chart_title = paste0("The Coin Flip: ", player_name, " (", fps_label, " FPS)"),
     
     # Map Colors
     Color = case_when(
@@ -244,3 +255,41 @@ fig <- fig |> layout(
 
 fig
 ```
+
+
+<div style="line-height: 1.8;">
+
+### Disclaimer
+
+<br>
+
+#### **1. The "Good Strike" vs. "Bad Strike" Problem**
+This data treats all strikes as equal, but in reality, pitch *quality* matters more than pitch *result*.
+
+* A generic "Strike" could be a 98mph fastball on the black (an excellent pitch).
+
+* It could also be a 90mph slider hanging in the middle of the plate (a terrible pitch).
+
+<br>
+
+Both count as a "First Pitch Strike" on these charts. However, a pitcher with a high strike percentage might actually be struggling if those strikes are low-quality "meatballs" that get crushed, whereas an Ace might throw fewer strikes but with much higher precision.
+
+<br>
+
+#### **2. Sample Size & Context**
+Baseball is a game of large numbers. If these charts are based on a small sample (like a single game or a specific month), the data can fluctuate wildly. A pitcher might have a 70% First Pitch Strike rate in one game simply because the opposing batters were swinging aggressively at bad pitches, not because the pitcher had elite control.
+
+<br>
+
+#### **3. Outcome Bias**
+We often judge the process by the result. Getting ahead <span style="color: #00ff00;">0-1</span> is statistically better, but it is not a magic wand.
+
+* If a pitcher falls behind <span style="color: #ff0000;">1-0</span> but induces a double-play on the next pitch, the "bad" start didn't matter.
+
+* Conversely, getting ahead <span style="color: #00ff00;">0-1</span> is useless if the pitcher immediately gives up a home run on the very next pitch.
+
+<br>
+
+##### First Pitch Strikes are a *tool* for success, not a *guarantee* of it.
+
+</div>

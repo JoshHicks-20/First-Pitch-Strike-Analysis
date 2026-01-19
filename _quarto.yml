@@ -9,6 +9,7 @@ website:
         text: First Pitch Effect
 
       - href: about.qmd
+        text: About
 
 
       - text: FPE Outcomes
@@ -27,7 +28,7 @@ website:
 
 
       - href: Pitchers.qmd
-        text: Starter Trifecta
+        text: FPE Spectrum
 
       - href: why_this.qmd
         text: Why This?
