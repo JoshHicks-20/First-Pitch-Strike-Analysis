@@ -51,3 +51,69 @@ if (exists("full_season_raw")) {
   print("❌ Raw data not found. You must re-download the season.")
   print("Please copy and run the 'Re-Download' script below.")
 }
+
+library(tidyverse)
+
+# 1. Load your data
+data <- read_csv("fps_analysis_2024.csv")
+
+print("Data loaded. Processing...")
+
+# 2. Identify Pitchers & Calculate FPS%
+pitcher_stats <- data |>
+  group_by(player_name) |>
+  summarize(
+    # FIX: Since the file only has 1 row per at-bat, we can just count rows!
+    total_batters = n(), 
+    
+    # FPS Stats
+    fps_count = sum(first_pitch_result == "Strike"),
+    fps_pct = fps_count / total_batters,
+    
+    # --- OUTCOME COUNTS ---
+    walks = sum(is_walk, na.rm = TRUE),
+    homeruns = sum(is_homerun, na.rm = TRUE),
+    base_hits = sum(is_hit, na.rm = TRUE) - homeruns,
+    strikeouts = sum(is_strikeout, na.rm = TRUE),
+    field_outs = sum(is_out, na.rm = TRUE) - strikeouts
+  ) |>
+  
+  # Filter for Qualified Starters (400+ Batters Faced)
+  filter(total_batters >= 400) |> 
+  arrange(desc(fps_pct))
+
+# 3. Pick the 3 Specific Pitchers
+best_pitcher   <- pitcher_stats |> slice(1)
+worst_pitcher  <- pitcher_stats |> slice(n())
+median_pitcher <- pitcher_stats |> slice(ceiling(n() / 2))
+
+# Combine them
+target_pitchers <- bind_rows(best_pitcher, median_pitcher, worst_pitcher) |> 
+  mutate(
+    Category = case_when(
+      player_name == best_pitcher$player_name ~ "Highest FPS%",
+      player_name == median_pitcher$player_name ~ "Average FPS%",
+      player_name == worst_pitcher$player_name ~ "Lowest FPS%"
+    )
+  )
+
+print(target_pitchers[, c("player_name", "Category", "fps_pct")])
+
+# 4. Reshape Data for the Pie Chart
+comparison_data <- target_pitchers |> 
+  pivot_longer(
+    cols = c(homeruns, base_hits, walks, strikeouts, field_outs), 
+    names_to = "Outcome_Type", 
+    values_to = "Count"
+  ) |> 
+  group_by(player_name) |> 
+  mutate(
+    Percentage = Count / sum(Count),
+    Label = scales::percent(Percentage, accuracy = 1)
+  ) |> 
+  select(player_name, Category, fps_pct, Outcome_Type, Count, Percentage, Label)
+
+# 5. Save the file
+write_csv(comparison_data, "pitcher_comparison.csv")
+
+print("SUCCESS! 'pitcher_comparison.csv' has been created.")

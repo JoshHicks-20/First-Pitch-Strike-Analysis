@@ -1,5 +1,246 @@
 ---
-title: "FPE Bermuda Triangle"
-format: html
+title: "Pitcher Comparison"
+format:
+  html:
+    css: styles.css
 ---
 
+## The Impact of First Pitch Strike Mentality on All Outcomes
+
+We analyzed three distinct starting pitchers from the 2024 season:
+
+1.  **The Sniper:** The pitcher with the **Highest** First Pitch Strike rate.
+2.  **The Average:** A pitcher representing the league median.
+3.  **The Wild Card:** The pitcher with the **Lowest** First Pitch Strike rate.
+
+Does throwing that first strike actually change the composition of how their season goes?
+
+
+
+
+::: {.callout-tip collapse="true" appearance="simple" icon=false}
+## ℹ️ **Click here: Why is "The Sniper" important?**
+
+**The Strategy:** This chart represents a pitcher who dominates the strike zone early (70% FPS).
+
+**What to look for:**
+* **Massive Green Slices:** Because he gets ahead 0-1, batters are forced to protect the plate, leading to high Strikeout and Field Out numbers.
+* **Tiny Yellow Slice:** He rarely walks people because he doesn't fall behind in the count.
+* **The Takeaway:** This is the model of efficiency. By attacking early, he minimizes damage and controls the pace of the game.
+:::
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-height: 5
+#| fig-width: 7
+
+library(plotly)
+library(tidyverse)
+
+# 1. Load Data (renamed to pitcher_data to avoid errors)
+pitcher_data <- read_csv("pitcher_comparison.csv")
+
+# 2. Prepare Data
+plot_data <- pitcher_data |> 
+  filter(Category == "Highest FPS%") |> 
+  mutate(
+    fps_label = scales::percent(fps_pct, accuracy = 0.1),
+    chart_title = paste0("The Sniper: ", player_name, " (", fps_label, " FPS)"),
+    
+    # Map Colors
+    Color = case_when(
+      Outcome_Type == "strikeouts" ~ "#00ff00", # Green
+      Outcome_Type == "field_outs" ~ "#008000", # Dark Green
+      Outcome_Type == "walks"      ~ "#ffff00", # Yellow
+      Outcome_Type == "base_hits"  ~ "#ff0000", # Red
+      Outcome_Type == "homeruns"   ~ "#ff00ff"  # Magenta
+    ),
+    
+    # Clean Labels
+    Clean_Label = case_when(
+      Outcome_Type == "strikeouts" ~ "Strikeout",
+      Outcome_Type == "field_outs" ~ "Field Out",
+      Outcome_Type == "walks"      ~ "Walk",
+      Outcome_Type == "base_hits"  ~ "Base Hit",
+      Outcome_Type == "homeruns"   ~ "Home Run"
+    )
+  )
+
+# 3. Create Plot
+fig <- plot_ly(plot_data, 
+        labels = ~Clean_Label, 
+        values = ~Count, 
+        type = 'pie',
+        textinfo = 'percent',          
+        hoverinfo = 'label+value',     
+        marker = list(colors = ~Color, line = list(color = '#000000', width = 2)),
+        textfont = list(family = "Arial", size = 14, color = "black")
+)
+
+# 4. Style (Green Title for Sniper)
+fig <- fig |> layout(
+  title = list(
+    text = unique(plot_data$chart_title),
+    font = list(color = "#00ff00", size = 20, family = "Arial") # Bright Green
+  ),
+  paper_bgcolor = "black",
+  plot_bgcolor = "black",
+  legend = list(font = list(color = "white", size = 12)),
+  margin = list(t = 50, b = 20, l = 20, r = 20)
+)
+
+fig
+```
+
+
+
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## ℹ️ **Click here: Understanding "The Average"**
+
+**The Strategy:** This represents the league median. This pitcher lands a first-pitch strike about 60% of the time.
+
+**What to look for:**
+* **Balance:** You see a healthy mix of green (outs) and red/yellow (danger).
+* **The Baseline:** This chart serves as your "Control Group." It shows what a typical MLB performance looks like.
+* **The Takeaway:** Compare the other two charts to this one. You will clearly see how deviating from this baseline (either better or worse command) dramatically shifts the color balance.
+:::
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-height: 5
+#| fig-width: 7
+
+library(plotly)
+library(tidyverse)
+
+# 1. Load Data
+pitcher_data <- read_csv("pitcher_comparison.csv")
+
+# 2. Prepare Data
+plot_data <- pitcher_data |> 
+  filter(Category == "Average FPS%") |> 
+  mutate(
+    fps_label = scales::percent(fps_pct, accuracy = 0.1),
+    chart_title = paste0("The Average: ", player_name, " (", fps_label, " FPS)"),
+    
+    Color = case_when(
+      Outcome_Type == "strikeouts" ~ "#00ff00",
+      Outcome_Type == "field_outs" ~ "#008000",
+      Outcome_Type == "walks"      ~ "#ffff00",
+      Outcome_Type == "base_hits"  ~ "#ff0000",
+      Outcome_Type == "homeruns"   ~ "#ff00ff"
+    ),
+    
+    Clean_Label = case_when(
+      Outcome_Type == "strikeouts" ~ "Strikeout",
+      Outcome_Type == "field_outs" ~ "Field Out",
+      Outcome_Type == "walks"      ~ "Walk",
+      Outcome_Type == "base_hits"  ~ "Base Hit",
+      Outcome_Type == "homeruns"   ~ "Home Run"
+    )
+  )
+
+# 3. Create Plot
+fig <- plot_ly(plot_data, 
+        labels = ~Clean_Label, 
+        values = ~Count, 
+        type = 'pie',
+        textinfo = 'percent',          
+        hoverinfo = 'label+value',     
+        marker = list(colors = ~Color, line = list(color = '#000000', width = 2)),
+        textfont = list(family = "Arial", size = 14, color = "black")
+)
+
+# 4. Style (Cyan Title for Average)
+fig <- fig |> layout(
+  title = list(
+    text = unique(plot_data$chart_title),
+    font = list(color = "#00ffff", size = 20, family = "Arial") # Cyan
+  ),
+  paper_bgcolor = "black",
+  plot_bgcolor = "black",
+  legend = list(font = list(color = "white", size = 12)),
+  margin = list(t = 50, b = 20, l = 20, r = 20)
+)
+
+fig
+```
+
+
+::: {.callout-important collapse="true" appearance="simple" icon=false}
+## ℹ️ **Click here: The Danger of "The Wild Card"**
+
+**The Strategy:** This pitcher has the lowest FPS rate (below 50%). He constantly falls behind 1-0.
+
+**What to look for:**
+* **The Yellow Danger Zone:** Notice how much larger the Walk slice (Yellow) is compared to The Sniper.
+* **Hidden Damage:** When batters know a pitcher can't find the zone, they sit on specific pitches, leading to harder contact (Red slices).
+* **The Takeaway:** This visualizes inefficiency. Falling behind extends innings, raises pitch counts, and gives the advantage to the batter.
+:::
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-height: 5
+#| fig-width: 7
+
+library(plotly)
+library(tidyverse)
+
+# 1. Load Data (renamed to pitcher_data)
+pitcher_data <- read_csv("pitcher_comparison.csv")
+
+# 2. Prepare Data
+plot_data <- pitcher_data |> 
+  filter(Category == "Lowest FPS%") |> 
+  mutate(
+    fps_label = scales::percent(fps_pct, accuracy = 0.1),
+    chart_title = paste0("The Wild Card: ", player_name, " (", fps_label, " FPS)"),
+    
+    # Map Colors
+    Color = case_when(
+      Outcome_Type == "strikeouts" ~ "#00ff00", # Green
+      Outcome_Type == "field_outs" ~ "#008000", # Dark Green
+      Outcome_Type == "walks"      ~ "#ffff00", # Yellow
+      Outcome_Type == "base_hits"  ~ "#ff0000", # Red
+      Outcome_Type == "homeruns"   ~ "#ff00ff"  # Magenta
+    ),
+    
+    # Clean Labels
+    Clean_Label = case_when(
+      Outcome_Type == "strikeouts" ~ "Strikeout",
+      Outcome_Type == "field_outs" ~ "Field Out",
+      Outcome_Type == "walks"      ~ "Walk",
+      Outcome_Type == "base_hits"  ~ "Base Hit",
+      Outcome_Type == "homeruns"   ~ "Home Run"
+    )
+  )
+
+# 3. Create Plot
+fig <- plot_ly(plot_data, 
+        labels = ~Clean_Label, 
+        values = ~Count, 
+        type = 'pie',
+        textinfo = 'percent',          
+        hoverinfo = 'label+value',     
+        marker = list(colors = ~Color, line = list(color = '#000000', width = 2)),
+        textfont = list(family = "Arial", size = 14, color = "black")
+)
+
+# 4. Style (Magenta Title for Wild Card)
+fig <- fig |> layout(
+  title = list(
+    text = unique(plot_data$chart_title),
+    font = list(color = "#ff00ff", size = 20, family = "Arial") # Magenta
+  ),
+  paper_bgcolor = "black",
+  plot_bgcolor = "black",
+  legend = list(font = list(color = "white", size = 12)),
+  margin = list(t = 50, b = 20, l = 20, r = 20)
+)
+
+fig
+```
