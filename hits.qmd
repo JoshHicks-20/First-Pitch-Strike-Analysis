@@ -72,3 +72,30 @@ ggplot(pie_data, aes(x = "", y = n, fill = first_pitch_result)) +
     legend.box.margin = margin(10, 10, 10, 10) # Gives the legend a little breathing room
   )
 ```
+
+<div style="line-height: 1.8;">
+
+#### **Understanding the "Hits" Chart**
+
+<br>
+
+##### **What is going on here?**
+This chart isolates every at-bat that resulted in a **Hit** (Singles, Doubles, Triples, HRs). It categorizes them by the count:
+
+
+* <span style="color: #00ff00;">**Green Slice (Strike):**</span> Hits that happened after the batter started down 0-1.
+
+* <span style="color: #ff0000;">**Red Slice (Ball):**</span> Hits that happened after the batter started ahead 1-0.
+
+<br>
+
+##### **⚠️ Why this data can be misleading**
+You might look at the large Green slice and think, *"Throwing a strike leads to more hits!"* However, this is the **"Base Rate" Fallacy**. 
+
+* Pitchers throw strikes about 60-65% of the time. 
+
+* Because there are significantly more 0-1 counts in a season, there will naturally be more hits coming from 0-1 counts, simply because the opportunity arises more often.
+
+* **The Reality:** Even though more hits *total* come from 0-1 counts, the batting average in those counts is much lower than in 1-0 counts.
+
+</div>

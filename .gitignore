@@ -2,3 +2,30 @@
 _site
 _files
 _data
+
+# --- R & RStudio Internals ---
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+
+# --- Quarto & RMarkdown Cache ---
+/.quarto/
+/_freeze/
+*_cache/
+*_files/
+
+# --- System Files (Mac/Windows junk) ---
+.DS_Store
+Thumbs.db
+
+# --- Optional: Output Files ---
+# Uncomment these if you ONLY want to save the code, not the resulting report
+# *.html
+# *.pdf
+# *.png
+
+# --- Optional: Data ---
+# Uncomment this if your CSV files are huge (>100MB) or private
+# *.csv
