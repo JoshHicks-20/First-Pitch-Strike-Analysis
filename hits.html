@@ -67,6 +67,20 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="site_libs/echarts4r-4.8.0/echarts-en.min.js"></script>
+
+<script src="site_libs/echarts4r-4.8.0/ecStat.min.js"></script>
+
+<script src="site_libs/echarts4r-4.8.0/dataTool.min.js"></script>
+
+<script src="site_libs/echarts4r-binding-0.4.6/echarts4r.js"></script>
+
+<script src="site_libs/dark-1.0.0/dark.js"></script>
+
 
 
 </head>
@@ -91,10 +105,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
 <span class="menu-text">First Pitch Effect</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-fpe-outcomes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -130,6 +140,10 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="./why_this.html"> 
 <span class="menu-text">Why This?</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -198,6 +212,12 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
+<div class="cell">
+<div class="cell-output-display">
+<div class="echarts4r html-widget html-fill-item" id="htmlwidget-12b415bc1385941063af" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-12b415bc1385941063af">{"x":{"theme":"dark","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"legend":{"data":["Ball","Strike"]},"series":[{"name":"n","type":"pie","roseType":"radius","radius":["25%","75%"],"itemStyle":{"borderRadius":8,"borderColor":"#000","borderWidth":3},"emphasis":{"scale":true,"scaleSize":20,"focus":"self","blurScope":"global","itemStyle":{"shadowBlur":50,"shadowColor":"white"},"label":{"fontSize":18,"fontWeight":"bold","color":"white"}},"label":{"show":true,"formatter":"{b}\n{c} Hits\n{d}%","color":"#ffffff","fontSize":14,"fontFamily":"monospace","position":"outside"},"labelLine":{"smooth":0.2,"length":20,"length2":30,"lineStyle":{"color":"#ffffff","width":2}},"data":[{"value":12646,"name":"Ball"},{"value":21847,"name":"Strike"}]}],"color":["#ff003c","#39ff14"],"title":[{"left":"center","top":"5%","textStyle":{"color":"#00ffff","fontFamily":"monospace","fontSize":24,"fontWeight":"bold"},"subtextStyle":{"color":"#aaaaaa","fontFamily":"monospace","fontSize":14},"text":"FIRST PITCH // IMPACT ANALYSIS","subtext":"Hover to engage targeting sensors"}],"tooltip":{"trigger":"item","backgroundColor":"rgba(0,0,0,0.85)","borderColor":"#00ffff","borderWidth":2,"textStyle":{"fontFamily":"monospace"},"formatter":"\n      function(params) {\n        return '<div style=\"font-size:16px; font-weight:bold; color:' + params.color + '\">' + \n               params.name + ' DETECTED<\/div>' +\n               '<hr style=\"border-color: grey\"/>' +\n               'Total Hits: <b style=\"color:white\">' + params.value + '<\/b><br/>' +\n               'Ratio: <b style=\"color:white\">' + params.percent + '%<\/b>';\n      }\n    "},"toolbox":{"feature":{"saveAsImage":{"title":"CAPTURE","iconStyle":{"borderColor":"#00ffff"}}}}},"dispose":true},"evals":["opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+</div>
 
 
 
